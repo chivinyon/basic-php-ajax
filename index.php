@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-<title>Z Valley</title>
-<head>
-    <link rel="stylesheet" href="/bootstrap-5.0.0/css/bootstrap.css">
-    <link rel="stylesheet" href="/bootstrap-5.0.0/css/bootstrap.min.css">
-    <script src="/bootstrap-5.0.0/js/bootstrap.js"></script>
-    <script src="/bootstrap-5.0.0/js/bootstrap.min.js"></script>
-</head>
+<?php include 'header.php'?>
 <body>
 <div class="container">
   <div class="accordion" id="accordionExample">
@@ -50,3 +42,4 @@
 </div>
 </body>
 </html>
+<?php include 'footer.php'?>

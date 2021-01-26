@@ -3,6 +3,21 @@
 <title>Login</title>
 <body>
 <?php include 'header.php'?>
+<?php
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $email = trim($_POST['email']);
+        $password = trim($_POST['password']);
+        $selectUser = "SELECT * FROM users where email ='".$email."' AND `password` = '".$password."'";
+        $result = $mysqli->query($selectUser)->fetch_row();
+        if(isset($result)){
+            $_SESSION['is_logged'] = 1;
+            header("location:users.php");
+            $message = "<div style='margin-top:10px;' class='alert alert-success' role='alert'>Login Successful</div>";
+        }else{
+            $message = "<div style='margin-top:10px;' class='alert alert-danger' role='alert'>User Not Found</div>";
+        }
+    }
+?>
 <div class="container" style="padding-left: 15%;padding-right: 15%;"> 
     <div class="card" style="margin-top: 15%; padding: 20px;">
         <div class="card-body">
@@ -23,10 +38,11 @@
                     <input type="checkbox" name="remember"> Remember!
                 </div>
                 <button class="btn btn-primary">Submit</button>
-                <a href="forgot-password.php" class="btn btn-warning">Forgot Password</a>
+                <a href="forgot-password.php" class="btn btn-warning">Forgot Password</a><br>
+                <?php echo $message;?>
             </form>
         </div>
     </div>
-</div>    
+</div>
 </body>
 </html>
