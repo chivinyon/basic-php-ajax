@@ -5,6 +5,7 @@
 <script src="/bootstrap-5.0.0/js/bootstrap.min.js"></script>
 <link href="/progressbar/themes/blue/pace-theme-minimal.css" rel="stylesheet" />
 <script src='/progressbar/pace.min.js' type='text/javascript'></script>
+<script src='/public/js/jquery-3.5.1.min.js' type='text/javascript'></script>
 <?php
 define('DB_HOST','localhost');
 define('DB_USER','root');

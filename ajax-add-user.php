@@ -80,7 +80,6 @@
             </form>
         </div>
     <div>    
-    <div class="display_message"></div>
     <div class="card" style="margin-top: 15%; padding: 20px;">
         <div class="card-body">
             <h2 class="card-title">List User</h2>
@@ -110,9 +109,8 @@
                     <td><?php echo $arr[2];?></td>
                     <td><?php echo $arr[3];?></td>
                     <td>
-                        <a data-id="<?php echo $arr[0];?>" target="_blank" href="/edit-users.php?id=<?php echo $arr[0];?>" class="btn btn-warning edit_user">Edit</a>
-                        <!-- <a href="/users.php?action=<?php echo "del";?>&id=<?php echo $arr[0];?>" class="btn btn-danger">Delete</a> -->
-                        <a data-id="<?php echo $arr[0];?>" class="btn btn-danger delete_action">Delete</a>
+                        <a target="_blank" href="/edit-users.php?id=<?php echo $arr[0];?>" class="btn btn-warning">Edit</a>
+                        <a href="/users.php?action=<?php echo "del";?>&id=<?php echo $arr[0];?>" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
             <?php } ?>
@@ -125,20 +123,13 @@
 <?php include 'footer.php'?> 
 <script type='text/javascript'>
 $( document ).ready(function() {
-    $(".delete_action").click(function(){
-        var user_id = $(this).attr("data-id")
-        //alert(id);
-        $.ajax({
-            data:{id:user_id},
-            url: "ajax-del-user.php", 
-            method: "post",
-            success: function(data){
-                //console.log( "ready!" );
-                var data = JSON.parse(data);
-                if(data.status == 1)
-                    $(".display_message").html(data.message);
-            }
-        });
+    $.ajax({
+        data:{},
+        url: "", 
+        method: "post",
+        success: function(data){
+            console.log( "ready!" );
+        }
     });
 });
 </script>
